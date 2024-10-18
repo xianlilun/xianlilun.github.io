@@ -2,6 +2,7 @@ title: 尼叠再辞的学习笔记
 description: 个人乱记
 url: "https://xianlilun.github.io"
 theme: minima
+banner: "/assets/banner.jpg"
 
 nav:
   - title: "首页"
