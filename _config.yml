@@ -1,18 +1,96 @@
-title: 尼叠再辞的学习笔记
-description: 个人乱记
-url: "https://xianlilun.github.io"
-theme: minima
-banner: "/assets/banner.jpg"
-logo: /assets/logo.png
-nav:
-  - title: "首页"
-    url: "/"
-  - title: "关于"
-    url: "/about"
+# 站点设置
+title: 尼爹再辞
+description: '个人学习记录' # 这意味着在 "baseurl:" 之前忽略换行
+permalink: ':title:output_ext'
+#baseurl: "/" # 你网站的子路径，例如 /blog
+url: "https://xianlilun.github.io" # 你网站的基本主机名和协议，例如 http://example.com
+#logo: "/assets/img/branding/MVM-logo-full.svg"
+#logo-icon: "/assets/img/branding/MVM-symbol.svg"
+#logo-icon-SEO: "/assets/img/branding/MVM-symbol-black.png" # 必须是非 SVG 文件
+logo: "/assets/img/branding/弦理论-横幅.svg"
+logo-icon: "/assets/img/branding/弦理论.svg"
+logo-icon-SEO: "/assets/img/branding/弦理论.png" # 必须是非 SVG 文件
 
+# 夜间/暗黑模式
+# 默认模式为 "auto"，"auto" 是自动夜间模式
+# （19:00 - 07:00），"manual" 是手动切换，和
+# "on/off" 是默认开/关。
+#
+# 用户的选择将覆盖网站的默认设置，并在访问期间保持（会话）。只有暗黑模式设置为 "manual"，它将在每次访问时保持（即使浏览器关闭也不变）
+night_mode: "auto"
+#logo-dark: "/assets/img/branding/MVM-logo-full-dark.svg"
+logo-dark: "/assets/img/branding/弦理论-横幅 - 黑暗.svg"
+highlight_theme: syntax-base16.monokai.dark # 如有需要，为代码高亮选择暗色主题
 
-# Build settings
-theme: minima
+# 作者设置
+author: 尼爹 # 添加你的名字
+# author-pic: Myself_Neon_grey.jpg  #作者照片
+author-pic: renzha.png
+about-author: 渣男。
+
+# 联系方式
+email: shuichenwudi@gmail.com # 添加你的电子邮件地址
+phone: # 添加你的电话号码
+website: https://xianllun.github.io # 添加你的网站
+linkedin:  # 添加你的 LinkedIn 账号
+github: xianlilun # 添加你的 GitHub 账号
+twitter: '@' # 添加你的 Twitter 账号
+bandcamp:  # 添加你的 Bandcamp 用户名
+stackoverflow:  # 添加你的 Stack Overflow 账号
+weibo: shuichenwudi # 你的微博账号
+wechat: #  你的微信号
+zhihu: # 你的知乎账号
+
+# 新闻通讯
+#mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
+
+# 跟踪
+analytics: G-R8SZS2YBZK
+fbadmin: ar.maybach
+
+# 分页
+paginate: 6
+paginate_path: 'page:num'
+words_per_minute: 200
+
+extensions:
+  mermaid_enable: true
+
+# 评论
+comments: utteranc  #[disqus, utteranc]
+comments_opts:
+  comments_curtain: yes # 留空以直接显示 disqus 嵌入
+  repo: xianlilun/xianlilun.github.io # GitHub 仓库 URL.  https://utteranc.es/
+  issue_term: title # GitHub 问题标签
+  label: comments # GitHub 评论标签
+  theme: github-light # GitHub 评论主题，例如 github-dark
+  # Disqus
+  discus_identifier: # 添加你的 Disqus 标识符
+
+# 构建设置
+markdown: kramdown
+mathjax: true
+highlighter: rouge
+compress_html:
+  clippings: all
+  comments: all
+  startings: [html, head, body]
+
+# 输出设置
+#timezone: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: "Asia/Shanghai" # 中国时区
+
+category_archive:
+  type: liquid
+  path: /categories/
+
+sass:
+  style: compressed
+
 plugins:
+  - jekyll-paginate
   - jekyll-feed
+  - jekyll-sitemap
 
+include: [_pages]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/"]

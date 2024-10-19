@@ -1,0 +1,13 @@
+<div class="share-options {{ include.class }}">
+    <div class="share-hover {{ include.class }}">
+        <span class="share-button {{ include.class }}"><svg fill="currentColor" width="25" height="25" class="{{ include.class }}"><g fill-rule="evenodd"><path d="..."></path></g></svg></span>
+        <div class="share-icons {{ include.class }}" id="{{ include.id }}-icons">
+            <a class="weibo" href="https://service.weibo.com/share/share.php?url={{ site.url }}{{ page.url }}&title={{ page.title }}" title="分享至微博" rel="nofollow" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+            <a class="wechat" href="javascript:void(0);" onclick="alert('微信分享功能需手动操作');" title="分享至微信"><i class="fa fa-wechat" aria-hidden="true"></i></a>
+            <a class="qq" href="https://connect.qq.com/widget/shareqq/index.html?url={{ site.url }}{{ page.url }}&title={{ page.title }}" title="分享至QQ" rel="nofollow" target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
+            <a class="email" href="mailto:?subject={{ page.title }}&body={{ page.description }}%0A%0ARead more here: {{ site.url }}{{ page.url }}" title="分享通过电子邮件" rel="nofollow" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <a class="copy-link" onclick="copyToClipboard()" title="复制链接" rel="nofollow" target="_blank"><svg width="20px" fill="currentColor" class="{{ include.class }}" viewBox="0 0 18 18"><path d="..."></path></svg></a>
+        </div>
+    </div>
+    <div class='alert' style='font-size:.6em;color:var(--accent);text-align:center;'></div>
+</div>

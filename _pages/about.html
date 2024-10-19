@@ -1,0 +1,35 @@
+---
+layout: menu-page
+title: About
+permalink: about:output_ext
+---
+{% include calculate_relative_base.html %}
+{% include escape-404.html %}
+
+<div class="small-wrapper">
+  <div class="about-container">
+    <section class="about-header">
+      <div class="author-image-container">
+        <a href='{{ site.website }}'><img src="{{ relativebase }}/assets/img/{% if site.author-pic %}{{site.author-pic}}{% endif %}" alt="{{site.author}}"></a>
+      </div>
+      <h3>{{site.author}}</h3>
+      <p class="subtitle">{{site.about-author}}</p>
+    </section>
+    <section class="about-body">
+		<ul class="contact-icons">
+		{% if site.weibo %}
+		   <li class="weibo"><a class="weibo" href="https://weibo.com/{{site.weibo}}" target="_blank"><i class="fa fa-weibo"></i></a></li>
+		{% endif %}
+		{% if site.wechat %}
+		   <li class="wechat"><a class="wechat" href="javascript:void(0);" onclick="alert('微信号: {{ site.wechat }}')"><i class="fa fa-wechat"></i></a></li>
+		{% endif %}
+		{% if site.zhihu %}
+		   <li class="zhihu"><a class="zhihu" href="https://www.zhihu.com/people/{{site.zhihu}}" target="_blank"><i class="fa fa-zhihu"></i></a></li>
+		{% endif %}
+		{% if site.email %}
+		   <li class="email"><a class="email" href="mailto:{{site.email}}"><i class="fa fa-envelope-o"></i></a></li>
+		{% endif %}
+		</ul>
+    </section> <!-- End About Body-->
+  </div> <!-- End About Container -->
+</div> <!-- End Small Wrapper -->
