@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<title>openwrt设置 - 尼爹再辞</title>
+	<link rel="canonical" href="http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html">
+	<meta name="description" content="这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:4000"},
+  "headline": "openwrt设置",
+  "abstract": "这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。",
+    "keywords": "openwrt, 软路由, 光猫, 网络配置",
+    "wordcount": "36",
+    "image": ["http://localhost:4000/assets/imgposts/2024-10-20/openwrt设置.jpg"],
+  "datePublished": "2024-10-20 14:34:59 +0800",
+  "dateModified": "2024-10-20 14:34:59 +0800",
+  "author": {
+    "@type": "Person",
+    "name": "尼爹"},
+  "publisher": {
+    "@type":  "Organization",
+    "logo": {
+        "@type": "ImageObject",
+        "encodingFormat": "image/png",
+        "contentUrl": "http://localhost:4000/assets/img/branding/弦理论.png",
+        "url": "http://localhost:4000/assets/img/branding/弦理论.png"},
+    "name" : "尼爹再辞"}
+}
+</script>
+<!-- Open Graph data -->
+<meta property="og:url" content="http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="openwrt设置"/>
+<meta property="og:description" content="这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。"/>
+<meta property="og:image" content="http://localhost:4000/assets/imgposts/2024-10-20/openwrt设置.jpg"/>
+<meta property="og:image:alt" content="openwrt设置"/>
+<meta property="og:site_name" content="尼爹再辞" />
+<meta property="article:published_time" content="2024-10-20 14:34:59 +0800" />
+<meta property="article:modified_time" content="2024-10-20 14:34:59 +0800" />
+<meta property="article:tag" content="openwrt, 软路由, 光猫, 网络配置" />
+<meta property="fb:admins" content="ar.maybach" />
+<!-- Schema.org markup for Google -->
+<meta itemprop="name" content="openwrt设置">
+<meta itemprop="description" content="这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。">
+<meta itemprop="image" content="http://localhost:4000/assets/imgposts/2024-10-20/openwrt设置.jpg">
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@">
+<meta name="twitter:title" content="openwrt设置">
+<meta name="twitter:description" content="这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。">
+<meta name="twitter:creator" content="">
+<meta data-rh="true" name="twitter:label1" content="Word count"/>
+<meta data-rh="true" name="twitter:data1" content="36"/>
+<meta name="twitter:image:src" content="http://localhost:4000/assets/img/posts/2024-10-20/openwrt设置.jpg">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#311e3e">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#311e3e">
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<style>
+/* latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lora/v17/0QIvMX1D_JOuMwr7I_FMl_E.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/lora/v17/0QIvMX1D_JOuMwr7I_FMl_E.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdu3cOWxw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu3cOWxw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+	</style>
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lora:400,600|Source+Sans+Pro:200,400,700" rel="stylesheet"> -->
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="./assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="./assets/css/main.css">
+	
+
+
+
+
+<link rel="icon" href="./assets/img/favicon/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="./assets/img/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="72x72" href="./assets/img/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="114x114" href="./assets/img/favicon/favicon.ico">
+	
+	<link rel="stylesheet" href="./assets/css/highlighter/syntax-base16.monokai.dark.css">
+	
+</head>
+
+  <body>
+    
+
+
+
+
+<section class="hidden">
+  <div class="post">
+      <a  class="post-list-title" href="./openwrt%E8%AE%BE%E7%BD%AE.html">openwrt设置</a>
+      
+
+  <span class = "post-card-meta">
+  
+  
+    <span class="meta-pre"></span>
+  
+  
+    
+      
+      <span class="page_meta-date">
+        <time datetime="2024-10-20T14:34:59+08:00">October 20, 2024</time>
+      </span>
+    
+    
+      <span class="meta-sep"></span>
+    
+  
+  
+    
+    
+    <span class="page_meta-readtime">
+      
+        less than 1 minute read
+      
+    </span>
+  
+  
+  </span>
+
+        <div class="post-excerpt">
+            <h2 id="openwrt一些简单设置的记录">openwrt一些简单设置的记录</h2><h3 id="网络概览">网络概览</h3><p>处理器一直以来用的都是D2550，不支持X86 64位，只能选择generic/X86。</p><p><img src="../assets/img/posts/2024-10-20/image-20241014132511156.png" alt="image-20241014132511156" /></p><h3 id="软路由系统">软路由系统</h3><p>近期D2550因一次突然断电，寿终正寝了。然后就迎来了J1900，终于可以尽情的安装软路由。软路由系统选择</p><ul>  <li><a href="https://github.com/openwrt/openwrt">openwrt</a> 原版系统，原汁原味。</li>  <li><a href="https://github.com/immortalwrt/immortalwrt" title="一款面向中国大陆用户的开源 OpenWrt 变体">ImmortalWrt</a> 适合中国食用的改版系统，很可口，清爽。</li>  <li><a href="https://github.com/kiddin9/Kwrt">KWRT</a> 另一个变体，这个是我用了几年的系统，当时是因为一直找不到合适的32位系统。这个系统很稳定，自带一些常用的软件，比如酸酸乳，怕死我，广告拦截等。</li>  <li><a href="https://www.ikuai8.com/component/download">IKUAI</a>  装过一两次，具体不评论</li>  <li><a href="https://github.com/linkease/istore">iStore</a>  官方定位，The iStore is a app store for OpenWRT。</li></ul><h3 id="科学工具">科学工具</h3><p>管用Passwall，DNS分流设置，都是随缘。</p><p><img src="../assets/img/posts/2024-10-20/image-20241014132616087.png" alt="image-20241014132616087" /></p><p>节点，VPS配合一键trojan，用的是<a href="https://github.com/Jrohy">Jrohy</a>大佬的<a href="https://github.com/Jrohy/trojan">trojan多用户管理部署程序</a>一键安装</p><p><img src="../assets/img/posts/2024-10-20/image-20241014132734116.png" alt="image-20241014132734116" /></p><h3 id="ddns">DDNS</h3><p>ddns动态域名，用的是DDNS-go,配置的是阿里云。顺便申请了<a href="https://freedns.afraid.org">Freedns</a>的二级域名(uk.to)，国内访问响应速度不错，用ddns直接配置的，DDNS-go不支持freedns。</p><p><img src="../assets/img/posts/2024-10-20/image-20241014133007900.png" alt="image-20241014133007900" /></p><p><img src="../assets/img/posts/2024-10-20/image-20241014133055973.png" alt="image-20241014133055973" /></p><p><img src="../assets/img/posts/2024-10-20/image-20241014133232997.png" alt="image-20241014133232997" /></p><p><img src="../assets/img/posts/2024-10-20/image-20241014133153105.png" alt="image-20241014133153105" /></p><h3 id="端口转发">端口转发</h3><p>端口转发，在防火墙这个选项内。因为是网络小白，光端口转发都摸索了好几天。还好现在有了chatgpt等ai工具，对于小白来说，上手难度降低了不少。</p><p><img src="../assets/img/posts/2024-10-20/image-20241014133541150.png" alt="image-20241014133541150" /></p><h3 id="桥接or路由模式">桥接or路由模式</h3><p>我选择了光猫桥接，openwrt软路由负责拨号。</p><p><img src="../assets/img/posts/2024-10-20/image-20241014133442750.png" alt="image-20241014133442750" /></p><p>我遇到了IPV6下发的问题，lan口无法获得ipv6。因为联通给我下发的IPV6是只有2048::/64.没有ipv6-pd前缀的。我寻遍了网络，没有找到解决办法，只好用小米路由使用的这种NAT6的方式，向下游分发IPV6，且<a href="https://test-ipv6.com/index.html.zh_CN">ipv6测试</a>凑活算是通过了。但是具体设置方法，我无法还原，因为lan口、wan6口、防火墙，我都做了不少改动，不知道具体哪些改动起了效果。</p><p><img src="../assets/img/posts/2024-10-20/image-20241015212412841.png" alt="image-20241015212412841" /></p><p><img src="../assets/img/posts/2024-10-20/IPV6测试.jpg" alt="IPV6测试" /></p><h3 id="结语">结语</h3><p>总体来说，openwrt上手难度不低，不太适合我这种小白，需要折腾和学习的地方太多了。但是，谁让咱喜欢折腾呢。这是我写的第一篇正式意义的博客，自己捣鼓着在github page上发布自己的博客。至于写博客的原因，主要还是因为折腾的东西太多，总容易遗忘之前已经踩过的坑，导致二次踩坑。于是，觉得静下来，把自己的折腾之路记下来，再次碰到之前的问题，可以之间在这网站里快速寻找答案，避免二次或多次踩到同一个坑，以至浪费宝贵的生命。</p><a class="read-more" href="./openwrt%E8%AE%BE%E7%BD%AE.html"> read more</a>
+        </div>
+  </div>
+</section>
+<div class="flex-container transparent">
+  
+
+
+
+
+<header class="main-header">
+  <div class="wrapper">
+    <div class="header-flex">
+      <div class="menu-icon-container">
+        <span class="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+      </div>
+      <nav class="main-nav">
+        <span class="menu-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+        <ul>
+          <li>
+            <div class="theme-toggle night">
+    <input class="night" type="checkbox" id="theme-switch">
+    <label class="night" for="theme-switch">
+        <div class="toggle night"></div>
+        <div class="names night">             
+        <p class="light night"><svg class="night" width="20" viewBox="0 0 25 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path class="night" d="M12.5 2.49871C11.3401 2.50016 10.2282 2.96156 9.40801 3.78171C8.58785 4.60187 8.12645 5.71383 8.125 6.87371C8.125 7.03947 8.19085 7.19844 8.30806 7.31565C8.42527 7.43286 8.58424 7.49871 8.75 7.49871C8.91576 7.49871 9.07473 7.43286 9.19194 7.31565C9.30915 7.19844 9.375 7.03947 9.375 6.87371C9.37593 6.04519 9.70547 5.25088 10.2913 4.66503C10.8772 4.07918 11.6715 3.74964 12.5 3.74871C12.6658 3.74871 12.8247 3.68286 12.9419 3.56565C13.0592 3.44844 13.125 3.28947 13.125 3.12371C13.125 2.95795 13.0592 2.79898 12.9419 2.68177C12.8247 2.56456 12.6658 2.49871 12.5 2.49871V2.49871ZM12.5 -0.00129131C8.47891 -0.00129131 5.62031 3.26238 5.625 6.88269C5.62487 8.54403 6.22974 10.1486 7.32656 11.3964C8.32891 12.5378 9.29062 14.4007 9.375 14.9987L9.37734 17.9358C9.37744 18.0587 9.41402 18.1787 9.48242 18.2807L10.4395 19.7198C10.4964 19.8055 10.5737 19.8758 10.6644 19.9245C10.7551 19.9731 10.8564 19.9986 10.9594 19.9987H14.0395C14.1426 19.9988 14.2441 19.9734 14.3351 19.9247C14.426 19.8761 14.5034 19.8057 14.5605 19.7198L15.5176 18.28C15.5854 18.1776 15.6219 18.0578 15.6227 17.935L15.625 14.9987C15.7129 14.3846 16.6797 12.5303 17.6734 11.3964C18.5434 10.4028 19.1087 9.17963 19.3015 7.87318C19.4944 6.56673 19.3066 5.23238 18.7608 4.02985C18.215 2.82732 17.3342 1.80757 16.2238 1.09264C15.1135 0.377721 13.8206 -0.00207746 12.5 -0.00129131V-0.00129131ZM14.3727 17.7452L13.7047 18.7487H11.2937L10.6273 17.7452V17.4987H14.3738L14.3727 17.7452ZM14.375 16.2487H10.625L10.6227 14.9987H14.375V16.2487ZM16.7348 10.5725C16.1879 11.1956 15.316 12.4511 14.7594 13.7479H10.243C9.68516 12.4507 8.81328 11.1956 8.26641 10.5725C7.36971 9.5491 6.87599 8.2344 6.87734 6.87371C6.87031 3.8659 9.23594 1.24871 12.5 1.24871C15.602 1.24871 18.125 3.77176 18.125 6.87371C18.1249 8.23456 17.6305 9.54904 16.7336 10.5725H16.7348ZM3.75 6.87371C3.75 6.70795 3.68415 6.54898 3.56694 6.43177C3.44973 6.31456 3.29076 6.24871 3.125 6.24871H0.625C0.45924 6.24871 0.300269 6.31456 0.183058 6.43177C0.065848 6.54898 0 6.70795 0 6.87371C0 7.03947 0.065848 7.19844 0.183058 7.31565C0.300269 7.43286 0.45924 7.49871 0.625 7.49871H3.125C3.29076 7.49871 3.44973 7.43286 3.56694 7.31565C3.68415 7.19844 3.75 7.03947 3.75 6.87371ZM20.625 2.49871C20.7221 2.49849 20.8178 2.4759 20.9047 2.43269L23.4047 1.18269C23.5529 1.10852 23.6657 0.978483 23.718 0.821201C23.7704 0.66392 23.7582 0.492273 23.684 0.344021C23.6473 0.270614 23.5964 0.205161 23.5344 0.151397C23.4724 0.0976336 23.4004 0.0566132 23.3225 0.0306781C23.1652 -0.0217002 22.9936 -0.00945342 22.8453 0.0647243L20.3453 1.31472C20.2194 1.37771 20.1184 1.48136 20.0588 1.60889C19.9991 1.73643 19.9843 1.88037 20.0166 2.0174C20.049 2.15442 20.1267 2.2765 20.2371 2.36386C20.3475 2.45122 20.4842 2.49873 20.625 2.49871ZM24.375 6.24871H21.875C21.7092 6.24871 21.5503 6.31456 21.4331 6.43177C21.3158 6.54898 21.25 6.70795 21.25 6.87371C21.25 7.03947 21.3158 7.19844 21.4331 7.31565C21.5503 7.43286 21.7092 7.49871 21.875 7.49871H24.375C24.5408 7.49871 24.6997 7.43286 24.8169 7.31565C24.9342 7.19844 25 7.03947 25 6.87371C25 6.70795 24.9342 6.54898 24.8169 6.43177C24.6997 6.31456 24.5408 6.24871 24.375 6.24871ZM4.65469 1.31472L2.15469 0.0647243C2.08128 0.0279952 2.00136 0.00608435 1.91948 0.00024269C1.83761 -0.00559897 1.75539 0.004743 1.67751 0.0306781C1.52023 0.0830564 1.39019 0.195769 1.31602 0.344021C1.24184 0.492273 1.22959 0.66392 1.28197 0.821201C1.33435 0.978483 1.44706 1.10852 1.59531 1.18269L4.09531 2.43269C4.18223 2.4759 4.27794 2.49849 4.375 2.49871C4.5158 2.49873 4.65248 2.45122 4.7629 2.36386C4.87332 2.2765 4.951 2.15442 4.98337 2.0174C5.01574 1.88037 5.0009 1.73643 4.94124 1.60889C4.88158 1.48136 4.78061 1.37771 4.65469 1.31472ZM23.4047 12.5647L20.9047 11.3147C20.7564 11.2405 20.5847 11.2283 20.4274 11.2807C20.2701 11.3332 20.14 11.4459 20.0658 11.5942C19.9916 11.7425 19.9794 11.9142 20.0318 12.0715C20.0842 12.2289 20.197 12.3589 20.3453 12.4331L22.8453 13.6831C22.9936 13.7573 23.1653 13.7695 23.3226 13.7171C23.4799 13.6647 23.61 13.5519 23.6842 13.4036C23.7584 13.2553 23.7706 13.0836 23.7182 12.9263C23.6658 12.769 23.553 12.6389 23.4047 12.5647V12.5647ZM4.375 11.2487C4.27794 11.2489 4.18223 11.2715 4.09531 11.3147L1.59531 12.5647C1.44701 12.6389 1.33425 12.769 1.28183 12.9263C1.25588 13.0042 1.24552 13.0864 1.25135 13.1683C1.25719 13.2502 1.27909 13.3302 1.31582 13.4036C1.35255 13.477 1.40338 13.5425 1.46542 13.5963C1.52745 13.6501 1.59947 13.6911 1.67737 13.7171C1.83469 13.7695 2.00638 13.7573 2.15469 13.6831L4.65469 12.4331C4.78083 12.3702 4.88202 12.2666 4.94183 12.1389C5.00164 12.0113 5.01656 11.8672 4.98417 11.7301C4.95178 11.5929 4.87397 11.4707 4.76339 11.3833C4.65281 11.2959 4.51594 11.2485 4.375 11.2487V11.2487Z" /></svg></p>
+        <p class="dark night"><svg class="night" width="20" viewBox="0 0 25 21" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path class="night" d="M6.39614 3.72646C7.50591 1.56178 9.72622 0.00900831 12.4782 0.00114817C13.8006 -0.00388798 15.0965 0.375153 16.2101 1.09278C17.3237 1.8104 18.2079 2.83612 18.7564 4.04682C19.3049 5.25751 19.4945 6.60175 19.3024 7.91818C19.1103 9.23461 18.5447 10.4673 17.6735 11.4683C17.5227 11.6416 17.3516 11.859 17.1739 12.1069L9.47856 6.12184C9.65443 5.45016 10.046 4.85578 10.5924 4.43118C11.1387 4.00657 11.8093 3.77554 12.4997 3.77401C12.6654 3.77401 12.8244 3.70776 12.9416 3.58984C13.0588 3.47191 13.1247 3.31197 13.1247 3.1452C13.1247 2.97843 13.0588 2.81849 12.9416 2.70057C12.8244 2.58264 12.6654 2.51639 12.4997 2.51639C11.6212 2.5173 10.7634 2.78383 10.0374 3.28141C9.31146 3.77899 8.75092 4.48463 8.42856 5.30674L6.39614 3.72646ZM6.39614 10.0841C6.64968 10.5817 6.96225 11.0465 7.327 11.4683C7.97231 12.2091 8.98169 13.7568 9.36645 15.0624C9.36645 15.0726 9.36919 15.0828 9.37075 15.093H12.8372L6.39614 10.0841ZM9.37466 16.3502V17.8574C9.37584 18.1045 9.44934 18.3458 9.58599 18.5511L10.2536 19.5607C10.3675 19.7335 10.5221 19.8753 10.7037 19.9734C10.8852 20.0715 11.0881 20.1229 11.2942 20.1231H13.7047C13.9107 20.1231 14.1135 20.0718 14.2951 19.9739C14.4766 19.876 14.6313 19.7345 14.7454 19.5619L15.4129 18.5511C15.5492 18.3451 15.622 18.1033 15.6223 17.8558V17.2581L14.4528 16.3502H9.37466Z"/>
+            <path class="night" d="M0.131556 1.2363L0.898352 0.243172C0.948738 0.177883 1.01142 0.123229 1.08282 0.0823368C1.15423 0.0414448 1.23294 0.0151171 1.31446 0.00486006C1.39598 -0.00539702 1.47872 0.000617709 1.55793 0.0225602C1.63714 0.0445026 1.71127 0.0819422 1.77609 0.132737L24.7585 18.0039C24.8894 18.1062 24.9745 18.2567 24.9952 18.4221C25.0158 18.5876 24.9703 18.7545 24.8687 18.8862L24.1015 19.8794C24.0511 19.9446 23.9884 19.9992 23.917 20.0401C23.8457 20.0809 23.767 20.1072 23.6855 20.1175C23.6041 20.1277 23.5214 20.1217 23.4422 20.0998C23.363 20.0779 23.2889 20.0405 23.2241 19.9898L0.241322 2.1186C0.110489 2.01624 0.0254259 1.86578 0.00484145 1.70032C-0.015743 1.53486 0.0298368 1.36795 0.131556 1.2363V1.2363Z"/>
+            </svg></p>
+        </div>
+    </label>
+</div>
+          </li>
+          <li>
+            <a href="./">
+              <div class="left">
+                主页
+              </div>  
+              <div class="right">
+                <svg width="24px" aria-hidden="true" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g><rect x="83.534" y="40.929" width="3.997" height="20.071"/></g><path d="M16.466,41.931l33.548-25.123L92.81,48.877l2.396-3.198L50.015,11.814L4.794,45.679l2.396,3.199l5.279-3.954v42.763h75.062  V61h-3.997v22.69H64.598V54.068H35.402V83.69H16.466V41.931z M39.399,58.065h21.202V83.69H39.399V58.065z"/></svg>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./archive.html">
+              <div class="left">
+                博客
+              </div>
+              <div class="right">
+                <svg width="24px" aria-hidden="true" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="-3 3 64 64"><g><path d="M60.992,31.985c0-15.979-13-28.978-28.979-28.978c-15.994,0-29.006,12.999-29.006,28.978   c0,15.994,13.012,29.007,29.006,29.007v-2c-14.891,0-27.006-12.115-27.006-27.007c0-14.875,12.115-26.978,27.006-26.978   c14.876,0,26.979,12.103,26.979,26.978c0,8.945-4.479,17.329-11.804,22.338l0.874-10.062l-1.992-0.174l-1.135,13.071l13.042,1.136   l0.174-1.992l-9.183-0.799C56.443,50.079,60.992,41.321,60.992,31.985z"/><polygon points="33.014,12.682 31.014,12.682 31.014,32.398 39.811,41.224 41.227,39.812 33.014,31.572  "/></g></svg>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./tags.html">
+              <div class="left">
+                标签
+              </div>
+              <div class="right">
+                <svg width="24px" aria-hidden="true" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g><path d="M75.244,15.066c-2.59,0-5.027,1.012-6.857,2.843c-3.781,3.785-3.778,9.94,0.002,13.724    c1.831,1.833,4.266,2.843,6.857,2.843s5.026-1.01,6.861-2.843c3.781-3.785,3.781-9.943-0.002-13.724    C80.275,16.076,77.838,15.066,75.244,15.066z M78.766,28.252c-1.871,1.869-5.129,1.869-6.996,0c-1.929-1.931-1.931-5.069-0.002-7    c0.934-0.934,2.175-1.448,3.498-1.448c1.322,0,2.564,0.515,3.5,1.448C80.691,23.183,80.691,26.321,78.766,28.252z M94.632,41.027    l0.005-28.872c0-3.745-3.05-6.792-6.792-6.792L58.973,5.368l-1.237-0.004c-1.893,0-4.75,0-6.617,1.869L7.008,51.342    c-1.06,1.059-1.645,2.467-1.645,3.966s0.583,2.908,1.644,3.968l33.717,33.717c1.058,1.06,2.467,1.645,3.966,1.645    s2.908-0.585,3.968-1.645l44.106-44.111c1.893-1.886,1.88-4.604,1.869-7.227L94.632,41.027z M90.022,46.139L45.913,90.25    c-0.654,0.65-1.792,0.652-2.443,0L9.752,56.532c-0.328-0.327-0.507-0.762-0.507-1.225c0-0.462,0.18-0.894,0.507-1.221    L53.861,9.976c0.676-0.674,2.284-0.731,3.874-0.731l1.237,0.004l28.872-0.004c1.604,0,2.909,1.306,2.909,2.911l-0.005,28.872    l0.005,0.642C90.76,43.585,90.769,45.392,90.022,46.139z"/></g></svg>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./about.html">
+              <div class="left">
+                关于
+              </div>
+              <div class="right">
+                <svg width='24px' aria-hidden="true" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846.66 846.66"><g><path d="M351.26 453.22c-276.42,134.06 -224.86,336.22 -224.73,336.8 6.03,25.41 -32.58,34.56 -38.6,9.15 -0.15,-0.65 -55.78,-219.32 218.87,-367.66 -60.98,-39 -100.02,-106.82 -100.02,-182.56 0,-119.6 96.95,-216.55 216.55,-216.55 119.6,0 216.55,96.95 216.55,216.55 0,75.74 -39.04,143.56 -100.02,182.56 274.65,148.34 219.02,367.01 218.87,367.66 -6.02,25.41 -44.63,16.26 -38.6,-9.15 0.13,-0.58 51.69,-202.74 -224.73,-336.8 -22.55,7.96 -46.8,12.29 -72.07,12.29 -25.27,0 -49.52,-4.33 -72.07,-12.29zm72.07 -381.14c-97.68,0 -176.87,79.19 -176.87,176.87 0,97.69 79.19,176.87 176.87,176.87 97.68,0 176.87,-79.18 176.87,-176.87 0,-97.68 -79.19,-176.87 -176.87,-176.87z"/></g></svg>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./feed.xml">
+              <div class="left">
+                聚合
+              </div>
+              <div class="right">
+                <svg width='24px' aria-hidden="true" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M80 352c26.467 0 48 21.533 48 48s-21.533 48-48 48-48-21.533-48-48 21.533-48 48-48m0-32c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80zm367.996 147.615c-6.448-237.848-198.06-429.164-435.61-435.61C5.609 31.821 0 37.229 0 44.007v8.006c0 6.482 5.146 11.816 11.626 11.994 220.81 6.05 398.319 183.913 404.367 404.367.178 6.48 5.512 11.626 11.994 11.626h8.007c6.778 0 12.185-5.609 12.002-12.385zm-144.245-.05c-6.347-158.132-133.207-284.97-291.316-291.316C5.643 175.976 0 181.45 0 188.247v8.005c0 6.459 5.114 11.72 11.567 11.989 141.134 5.891 254.301 119.079 260.192 260.192.269 6.453 5.531 11.567 11.989 11.567h8.005c6.798 0 12.271-5.643 11.998-12.435z"></path></svg>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <div class="logo"><a href="./"><img class="logo" id="logo" src="./assets/img/branding/弦理论-横幅.svg" alt="尼爹再辞"></a></div>
+      <div class="search-icon-container">
+        <span class="search-icon"><a><i class="fa fa-search" aria-hidden="true"></i></a></span>
+      </div>
+    </div>
+  </div>
+</header> <!-- End Header -->
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="openwrt设置">
+<meta itemprop="description" content="这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。">
+<meta itemprop="datePublished" content="2024-10-20T14:34:59+08:00">
+
+    <div class="page-image">
+      <div class="cover-image" style="background: url('./assets/img/posts/2024-10-20/openwrt设置.jpg') center no-repeat; background-size: cover;"></div>
+    </div>
+    <div class="wrapper">
+      <div class="page-content">
+        <div class="header-page">
+          <h1 class="page-title">openwrt设置</h1>
+          
+
+  <span class = "post-page-meta">
+  
+    <p class="page_meta">
+  
+  
+  
+    
+      
+      <span class="page_meta-date">
+        <time datetime="2024-10-20T14:34:59+08:00">October 20, 2024</time>
+      </span>
+    
+    
+      <span class="meta-sep"></span>
+    
+  
+  
+    
+    
+    <span class="page_meta-readtime">
+      
+        less than 1 minute read
+      
+    </span>
+  
+  
+    </p>
+  
+  </span>
+
+        </div>
+        <aside class="sidebar side" id="sidebar">
+    
+
+
+
+<div class="tag-cloud">
+    
+        <ul class="tags side">
+            
+                <li><a href="./tag.html?tag=openwrt" class="tag side">openwrt</a></li>
+            
+                <li><a href="./tag.html?tag=%E8%BD%AF%E8%B7%AF%E7%94%B1" class="tag side">软路由</a></li>
+            
+                <li><a href="./tag.html?tag=%E5%85%89%E7%8C%AB" class="tag side">光猫</a></li>
+            
+                <li><a href="./tag.html?tag=%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE" class="tag side">网络配置</a></li>
+            
+    
+        </ul>
+</div>
+    <div class="share-options side">
+    <div class="share-hover side">
+        <span class="share-button side"><svg fill="currentColor" width="25" height="25" class="side"><g fill-rule="evenodd"><path d="..."></path></g></svg></span>
+        <div class="share-icons side" id="sidebar-icons">
+            <a class="weibo" href="https://service.weibo.com/share/share.php?url=http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html&title=openwrt设置" title="分享至微博" rel="nofollow" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+            <a class="wechat" href="javascript:void(0);" onclick="alert('微信分享功能需手动操作');" title="分享至微信"><i class="fa fa-wechat" aria-hidden="true"></i></a>
+            <a class="qq" href="https://connect.qq.com/widget/shareqq/index.html?url=http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html&title=openwrt设置" title="分享至QQ" rel="nofollow" target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
+            <a class="email" href="mailto:?subject=openwrt设置&body=这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。%0A%0ARead more here: http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html" title="分享通过电子邮件" rel="nofollow" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <a class="copy-link" onclick="copyToClipboard()" title="复制链接" rel="nofollow" target="_blank"><svg width="20px" fill="currentColor" class="side" viewBox="0 0 18 18"><path d="..."></path></svg></a>
+        </div>
+    </div>
+    <div class='alert' style='font-size:.6em;color:var(--accent);text-align:center;'></div>
+</div>
+
+</aside>
+
+        
+        
+<div class="center-container">
+  <div class="github-button">
+    <span class="button-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z"/></svg></span>
+    <a class="button-text" href="https://github.com/xianlilun/" target="_blank" aria-label="Open on GitHub">view on <b>GitHub</b></a>
+  </div>
+</div>
+
+        <h2 id="openwrt一些简单设置的记录">openwrt一些简单设置的记录</h2>
+
+<h3 id="网络概览">网络概览</h3>
+
+<p>处理器一直以来用的都是D2550，不支持X86 64位，只能选择generic/X86。</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014132511156.png" alt="image-20241014132511156" /></p>
+
+<h3 id="软路由系统">软路由系统</h3>
+
+<p>近期D2550因一次突然断电，寿终正寝了。然后就迎来了J1900，终于可以尽情的安装软路由。软路由系统选择</p>
+
+<ul>
+  <li><a href="https://github.com/openwrt/openwrt">openwrt</a> 原版系统，原汁原味。</li>
+  <li><a href="https://github.com/immortalwrt/immortalwrt" title="一款面向中国大陆用户的开源 OpenWrt 变体">ImmortalWrt</a> 适合中国食用的改版系统，很可口，清爽。</li>
+  <li><a href="https://github.com/kiddin9/Kwrt">KWRT</a> 另一个变体，这个是我用了几年的系统，当时是因为一直找不到合适的32位系统。这个系统很稳定，自带一些常用的软件，比如酸酸乳，怕死我，广告拦截等。</li>
+  <li><a href="https://www.ikuai8.com/component/download">IKUAI</a>  装过一两次，具体不评论</li>
+  <li><a href="https://github.com/linkease/istore">iStore</a>  官方定位，The iStore is a app store for OpenWRT。</li>
+</ul>
+
+<h3 id="科学工具">科学工具</h3>
+
+<p>管用Passwall，DNS分流设置，都是随缘。</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014132616087.png" alt="image-20241014132616087" /></p>
+
+<p>节点，VPS配合一键trojan，用的是<a href="https://github.com/Jrohy">Jrohy</a>大佬的<a href="https://github.com/Jrohy/trojan">trojan多用户管理部署程序</a>一键安装</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014132734116.png" alt="image-20241014132734116" /></p>
+
+<h3 id="ddns">DDNS</h3>
+
+<p>ddns动态域名，用的是DDNS-go,配置的是阿里云。顺便申请了<a href="https://freedns.afraid.org">Freedns</a>的二级域名(uk.to)，国内访问响应速度不错，用ddns直接配置的，DDNS-go不支持freedns。</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014133007900.png" alt="image-20241014133007900" /></p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014133055973.png" alt="image-20241014133055973" /></p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014133232997.png" alt="image-20241014133232997" /></p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014133153105.png" alt="image-20241014133153105" /></p>
+
+<h3 id="端口转发">端口转发</h3>
+
+<p>端口转发，在防火墙这个选项内。因为是网络小白，光端口转发都摸索了好几天。还好现在有了chatgpt等ai工具，对于小白来说，上手难度降低了不少。</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014133541150.png" alt="image-20241014133541150" /></p>
+
+<h3 id="桥接or路由模式">桥接or路由模式</h3>
+
+<p>我选择了光猫桥接，openwrt软路由负责拨号。</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241014133442750.png" alt="image-20241014133442750" /></p>
+
+<p>我遇到了IPV6下发的问题，lan口无法获得ipv6。因为联通给我下发的IPV6是只有2048::/64.没有ipv6-pd前缀的。我寻遍了网络，没有找到解决办法，只好用小米路由使用的这种NAT6的方式，向下游分发IPV6，且<a href="https://test-ipv6.com/index.html.zh_CN">ipv6测试</a>凑活算是通过了。但是具体设置方法，我无法还原，因为lan口、wan6口、防火墙，我都做了不少改动，不知道具体哪些改动起了效果。</p>
+
+<p><img src="../assets/img/posts/2024-10-20/image-20241015212412841.png" alt="image-20241015212412841" /></p>
+
+<p><img src="../assets/img/posts/2024-10-20/IPV6测试.jpg" alt="IPV6测试" /></p>
+
+<h3 id="结语">结语</h3>
+
+<p>总体来说，openwrt上手难度不低，不太适合我这种小白，需要折腾和学习的地方太多了。但是，谁让咱喜欢折腾呢。这是我写的第一篇正式意义的博客，自己捣鼓着在github page上发布自己的博客。至于写博客的原因，主要还是因为折腾的东西太多，总容易遗忘之前已经踩过的坑，导致二次踩坑。于是，觉得静下来，把自己的折腾之路记下来，再次碰到之前的问题，可以之间在这网站里快速寻找答案，避免二次或多次踩到同一个坑，以至浪费宝贵的生命。</p>
+
+        <aside class="sidebar inline" id="post-end">
+    
+
+
+
+<div class="tag-cloud">
+    
+        <ul class="tags inline">
+            
+                <li><a href="./tag.html?tag=openwrt" class="tag inline">openwrt</a></li>
+            
+                <li><a href="./tag.html?tag=%E8%BD%AF%E8%B7%AF%E7%94%B1" class="tag inline">软路由</a></li>
+            
+                <li><a href="./tag.html?tag=%E5%85%89%E7%8C%AB" class="tag inline">光猫</a></li>
+            
+                <li><a href="./tag.html?tag=%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE" class="tag inline">网络配置</a></li>
+            
+    
+        </ul>
+</div>
+    <div class="share-options inline">
+    <div class="share-hover inline">
+        <span class="share-button inline"><svg fill="currentColor" width="25" height="25" class="inline"><g fill-rule="evenodd"><path d="..."></path></g></svg></span>
+        <div class="share-icons inline" id="post-end-icons">
+            <a class="weibo" href="https://service.weibo.com/share/share.php?url=http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html&title=openwrt设置" title="分享至微博" rel="nofollow" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+            <a class="wechat" href="javascript:void(0);" onclick="alert('微信分享功能需手动操作');" title="分享至微信"><i class="fa fa-wechat" aria-hidden="true"></i></a>
+            <a class="qq" href="https://connect.qq.com/widget/shareqq/index.html?url=http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html&title=openwrt设置" title="分享至QQ" rel="nofollow" target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
+            <a class="email" href="mailto:?subject=openwrt设置&body=这是一篇关于openwrt设置的文章。主要是这几年安装配置openwrt的一些粗糙的认识。%0A%0ARead more here: http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html" title="分享通过电子邮件" rel="nofollow" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <a class="copy-link" onclick="copyToClipboard()" title="复制链接" rel="nofollow" target="_blank"><svg width="20px" fill="currentColor" class="inline" viewBox="0 0 18 18"><path d="..."></path></svg></a>
+        </div>
+    </div>
+    <div class='alert' style='font-size:.6em;color:var(--accent);text-align:center;'></div>
+</div>
+
+</aside>
+
+        <div class="separator"></div>
+        
+
+
+
+<section class="author-box">
+  <div class="narrow-column">
+    <a href='https://xianllun.github.io'><img src="./assets/img/renzha.png" alt="尼爹" class="author-img"></a>
+    <ul class="contact-icons">
+      
+      <li class="weibo"><a class="weibo" href="https://weibo.com/shuichenwudi" target="_blank"><i class="fa fa-weibo"></i></a></li>
+      
+      
+      
+      
+      <li class="email"><a class="email" href="mailto:shuichenwudi@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+      
+    </ul>
+  </div>
+  <div class="author-desc">
+    <h3>尼爹</h3>
+    <p>渣男。</p>
+  </div>
+</section>
+
+
+        
+
+
+
+<div class="recent-box">
+  <h2 class="page-subtitle">最新文章</h2>
+  <div class="recent-list">
+    
+      
+        <div class="recent-item">
+          
+          
+
+          <a href="./openwrt%E8%AE%BE%E7%BD%AE.html" class="recent-item-img" style="background: url('./assets/img/posts/2024-10-20/openwrt设置.jpg') center no-repeat; background-size: cover;">
+            <div class="recent-item-title">
+              <span>openwrt设置</span>
+              
+
+  <span class = "recent-item-meta">
+  
+  
+  
+  
+    
+    
+    <p class="page_meta-readtime">
+      
+        less than 1 minute read
+      
+    </p>
+  
+  
+  </span>
+
+            </div>
+          </a>
+        </div>
+      
+    
+  </div>
+</div> <!-- End Recent-Box -->
+
+		<!--
+        <div class="newsletter" id="mc_embed_signup">
+  <h2 class="page-subtitle">Newsletter</h2>
+  <div class="form-container">
+    <p>在此订阅，获取我们的最新消息</p>
+    <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <label class="screen-reader-text" for="mce-EMAIL">电子邮件地址</label>
+      <div class="newsletter-box" id="mc_embed_signup_scroll">
+        <input type="email" name="EMAIL" placeholder="Email address" class="email-input" id="mce-EMAIL" required>
+        <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="mc-embedded-subscribe">
+      </div>
+    </form>
+  </div>
+</div> <!-- End Newsletter -->
+
+		-->
+        <section class="comment-area">
+    <div class="comment-wrapper">
+        
+        <div class="row" id="comment-curtain">
+            <div class="col-lg-8 col-sm-10 mr-auto ml-auto">
+                <h2 class="page-subtitle">评论</h2>
+                <div class="comments-trigger" onClick="toggle_comments()">
+                    <i class="fa fa-comments"></i>&nbsp;&nbsp;留下你的评论...
+                </div>
+            </div>
+        </div>
+        
+
+        
+            
+            <div id="comment-layout">
+                <script src="https://utteranc.es/client.js" repo="xianlilun/xianlilun.github.io"
+                    issue-term="title"
+                    label="comments" theme="github-light"
+                    crossorigin="anonymous" async>
+                </script>
+            </div>
+            
+        
+    </div>
+</section> <!-- End Comment Area -->
+      </div>
+    </div> <!-- End Wrapper -->
+  </article>
+  <div class="search-box">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" id="search-input" class="search" placeholder="搜索">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search"></ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+
+
+
+<footer class="main-footer">
+    <div class="footer-wrapper">
+        <div class="logo-symbol">
+            <a class="logo-link" title="尼爹再辞" href="./">
+				<svg width="39" height="19" viewBox="0 0 39 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path id="&#229;&#176;&#188;&#231;&#136;&#185;" d="M2.9 1.2H4.4V6.68C4.4 10.16 4.1 15.22 1.96 18.6C1.68 18.36 1.02 18 0.64 17.84C2.72 14.58 2.9 9.98 2.9 6.66V1.2ZM3.84 1.2H16.7V6.86H3.84V5.46H15.18V2.58H3.84V1.2ZM6.5 7.82H8V15.34C8 16.18 8.28 16.34 9.74 16.34C10.44 16.34 13.92 16.34 14.84 16.34C16.14 16.34 16.34 15.9 16.48 13.48C16.84 13.74 17.48 13.98 17.92 14.08C17.66 16.98 17.14 17.76 14.9 17.76C14.34 17.76 10.24 17.76 9.7 17.76C7.2 17.76 6.5 17.28 6.5 15.34V7.82ZM15.62 8.98L16.6 10.26C14.08 11.3 10.7 12.56 7.66 13.58C7.58 13.24 7.34 12.74 7.16 12.42C10.14 11.4 13.52 9.98 15.62 8.98ZM32.1 2L33.4 2.56C30.84 5.36 25.76 6.74 21.06 7.5C20.9 7.18 20.5 6.58 20.22 6.28C24.94 5.7 29.84 4.42 32.1 2ZM26.18 0.26L27.46 0.759999C25.98 2.12 23.64 3.42 21.72 4.24C21.5 3.96 21.02 3.42 20.72 3.18C22.66 2.5 24.86 1.4 26.18 0.26ZM26.78 2.08C28.98 4.34 33.74 5.64 38.7 6.02C38.4 6.34 38.04 6.9 37.88 7.28C32.86 6.76 28.12 5.28 25.62 2.62L26.78 2.08ZM31.4 1.06L32.38 0.219999C34.32 0.979999 36.82 2.26 38.12 3.2L37.06 4.14C35.84 3.2 33.38 1.86 31.4 1.06ZM25.02 9.22L26.1 8.56C27.2 9.02 28.56 9.8 29.28 10.4L28.16 11.14C27.5 10.56 26.14 9.74 25.02 9.22ZM32.26 7.12H32.52L32.78 7.06L33.66 7.6C31.42 10.86 26.46 12.82 22.16 13.68C22.02 13.34 21.7 12.86 21.46 12.58C25.56 11.9 30.36 10.04 32.26 7.34V7.12ZM28.26 7.12H32.56V8.22H27.2L28.26 7.12ZM28.38 13.76L29.48 13.12C30.54 13.66 31.84 14.52 32.52 15.16L31.32 15.86C30.72 15.24 29.44 14.34 28.38 13.76ZM36.22 11.24H36.52L36.78 11.16L37.7 11.72C35.16 16.22 29.18 18.02 23.22 18.7C23.12 18.32 22.86 17.78 22.64 17.46C28.26 16.94 34.08 15.24 36.22 11.46V11.24ZM31.82 11.24H36.44V12.4H30.74L31.82 11.24ZM29.1 5.82L30.3 6.26C28.46 8.18 25.28 9.6 22.42 10.44C22.26 10.18 21.86 9.62 21.58 9.38C24.42 8.68 27.5 7.44 29.1 5.82ZM32.62 9.9L33.8 10.36C31.88 12.66 28.42 14.28 25.24 15.26C25.08 15 24.66 14.44 24.4 14.18C27.58 13.36 30.9 11.9 32.62 9.9Z" fill="url(#paint0_linear_1_4)"/>
+				<defs>
+				<linearGradient id="paint0_linear_1_4" x1="19.5" y1="-12" x2="19.5" y2="33" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#FD3C3C"/>
+				<stop offset="0.555556" stop-color="#5F2A85"/>
+				<stop offset="1" stop-color="#2123A2"/>
+				</linearGradient>
+				</defs>
+				</svg>            
+			</a>
+        </div>
+        <div class="copyright">
+          <p>2024 &copy; 尼爹</p>
+        </div>
+        <div class="footer-nav">
+            <div>
+                <a href="./archive.html">
+                    博客
+                </a>
+            </div>
+            <div>
+                <a href="./tags.html">
+                    标签
+                </a>
+            </div>
+            <div>
+                <a href="./about.html">
+                    关于
+                </a>
+            </div>
+        </div>
+    </div>
+</footer> <!-- End Footer -->
+
+</div>
+
+    <div class="top" title="Top">
+      <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="angle-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-angle-up fa-w-8 fa-2x"><path fill="currentColor" d="M136.5 185.1l116 117.8c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0L128 224.7 27.6 326.9c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l116-117.8c4.7-4.6 12.3-4.6 17 .1z" class=""></path></svg>
+    </div>
+    
+
+
+
+
+<!-- JS -->
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var logo = document.getElementById('logo');
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+    storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+    var data = storage.getItem('theme');
+    try {
+        data = JSON.parse(data ? data : '');
+    } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+    }
+    return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+    themeData.nightShift = nightShift;
+    saveThemeData(themeData);
+    html.dataset.theme = nightShift ? 'dark' : 'light';
+    if (nightShift) {
+        logo.setAttribute("src", "./assets/img/branding/弦理论-横幅 - 黑暗.svg");
+    } else {
+        logo.setAttribute("src", "./assets/img/branding/弦理论-横幅.svg");
+    }
+    setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+    }, 50);
+    }
+
+    function autoThemeToggle() {
+    // Next time point of theme toggle
+    var now = new Date();
+    var toggleAt = new Date();
+    var hours = now.getHours();
+    var nightShift = hours >= 19 || hours <=7;
+
+    if (nightShift) {
+        if (hours > 7) {
+        toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+    } else {
+        toggleAt.setHours(19);
+    }
+
+    toggleAt.setMinutes(0);
+    toggleAt.setSeconds(0);
+    toggleAt.setMilliseconds(0)
+
+    var delay = toggleAt.getTime() - now.getTime();
+
+    // auto toggle theme mode
+    setTimeout(function() {
+        handleThemeToggle(!nightShift);
+    }, delay);
+
+    return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+    };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+    handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+    var data = autoThemeToggle();
+
+    // Toggle theme by local setting
+    if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+    } else {
+        handleThemeToggle(themeData.nightShift);
+    }
+    } else if (nightModeOption == 'manual') {
+    handleThemeToggle(themeData.nightShift);
+    } else {
+    var nightShift = themeData.nightShift;
+    if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+    }
+    handleThemeToggle(nightShift);
+    }
+})();
+</script>
+
+<script src="./assets/js/jekyll-search.js"></script>
+<script src="./assets/js/jquery-3.6.0.min.js"></script>
+
+
+  <script>
+    function toggle_comments(){
+      var commentCurtain = document.getElementById('comment-curtain')
+      if (commentCurtain) {
+        commentCurtain.classList.toggle('hide')
+      }
+      var disqusThread = document.getElementById('comment-layout')
+      if (disqusThread) {
+        disqusThread.classList.toggle('show')
+      }
+    }
+
+    function copyToClipboard() {
+      navigator.clipboard.writeText('http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html').then(function() {
+      alerts = document.getElementsByClassName('alert')
+      for (i=0; i < alerts.length; i++){
+        alerts[i].innerHTML='\u00ABlink copied\u00BB';
+        setTimeout((function(i){ return function(){alerts[i].innerHTML='';}})(i), 1600 );
+      };
+      }, function() {
+        prompt("Unable to copy, please use this link:", "http://localhost:4000/openwrt%E8%AE%BE%E7%BD%AE.html");
+      });
+    }
+
+    $(function () {
+      if (document.getElementById('comment-curtain') == null){
+        var disqusThread = document.getElementById('comment-layout')
+        if (disqusThread) {
+          disqusThread.classList.toggle('show')
+        }
+      }
+
+      var tweetTags = document.getElementsByTagName("tweet");
+
+      if (tweetTags != null){
+        for (i=0; i<tweetTags.length; i++){
+          tweetA = document.createElement("a")
+          tweetA.href = 'https://twitter.com/share?text='
+                       + encodeURIComponent(tweetTags[i].textContent)
+                       + '&via=&url='
+                       + window.location.href;
+          tweetA.target = "_blank";
+          tweetA.className = 'twitter';
+          tweetSpanText = document.createElement('span');
+          tweetSpanText.className = 'tweetText';
+          tweetSpanText.appendChild(document.createTextNode(tweetTags[i].textContent));
+          tweetSpanIcon = document.createElement('span');
+          tweetSpanIcon.className = 'tweetIcon';
+          tweetSpanIcon.appendChild(document.createTextNode("click to tweet"));
+          tweetI = document.createElement("i");
+          tweetI.className = 'fa fa-twitter';
+          tweetSpanIcon.appendChild(tweetI);
+          tweetA.appendChild(tweetSpanText);
+          tweetA.appendChild(tweetSpanIcon);
+          tweetTags[i].textContent = "";
+          tweetTags[i].appendChild(tweetA);
+        }
+      }
+
+    });
+
+  </script>
+  <!-- Mailchimp linking -->
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/8ece198b3eb260e6838461a60/d20d9fb9aad962399025da52e.js");</script>
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "CommonHTML": { linebreaks: { automatic: true } }
+    });
+  </script>
+  <script src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<script src="./assets/js/main.js"></script>
+<script>
+  SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: './search.json',
+      searchResultTemplate: '<li><a href="{url}" title="{description}">{title}</a><p>{description}</p></li>',
+      noResultsText: 'No results found',
+      fuzzy: false,
+      exclude: ['Welcome']
+    });
+</script>
+
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R8SZS2YBZK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R8SZS2YBZK');
+</script>
+  </body>
+</html>
