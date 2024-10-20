@@ -1,3 +1,5 @@
+**写在前面：本项目根据[the-mvm](https://github.com/the-mvm)大佬的[the-mvm.github.io](https://github.com/the-mvm/the-mvm.github.io)项目改动而来，感谢开源项目带给我的快乐！**
+
 ## 尼爹再辞
 
 欢迎访问我的个人博客！这是一个使用 Jekyll 构建的网站，记录我的学习和生活点滴。
