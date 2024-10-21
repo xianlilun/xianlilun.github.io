@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'jekyll'
 gem 'tzinfo'
 gem 'tzinfo-data'
-
+gem 'jekyll-toc'
 
 group :jekyll_plugins do
   gem "jekyll-paginate"
