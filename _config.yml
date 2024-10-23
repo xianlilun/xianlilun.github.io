@@ -51,7 +51,7 @@ analytics:
   google:
     id: # 填写你的 Google Analytics ID
   goatcounter:
-    id: # 填写你的 GoatCounter ID
+    id: xianlilun  # 填写你的 GoatCounter ID
   umami:
     id: # 填写你的 Umami ID
     domain: # 填写你的 Umami 域名
@@ -71,10 +71,10 @@ pageviews:
 theme_mode: # [light | dark]
 
 # 媒体资源的 CDN 端点
-cdn: "https://chirpy-img.netlify.app"
+cdn: ""  #https://chirpy-img.netlify.app
 
 # 侧边栏头像，支持本地或 CORS 资源
-avatar: "/assets/尼爹.png"
+avatar: "assets/尼爹.jpg"
 
 # 网站范围内的社交预览图像，用于 SEO `og:image` 元标签。
 social_preview_image: # 字符串，本地或 CORS 资源
