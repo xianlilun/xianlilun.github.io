@@ -31,8 +31,8 @@ social:
   name: 尼爹 # 更改为你的全名
   email: shuicenwudi@gmail.com # 修改为你的邮箱地址
   links:
-    - https://github.com/xianlilun # 修改为你的 GitHub 主页
     - https://twitter.com/username # 修改为你的 Twitter 主页
+    - https://github.com/xianlilun # 修改为你的 GitHub 主页
 
 # 网站验证设置
 webmaster_verifications:
@@ -83,12 +83,12 @@ social_preview_image: "assets/尼爹.jpg" # 字符串，本地或 CORS 资源
 toc: true
 
 comments:
-  provider: utterances # [disqus | utterances | giscus]
+  provider: # [disqus | utterances | giscus]
   disqus:
     shortname: # 填写 Disqus 短名称
   utterances:
-    repo: xianlilun/xianlilun.github.io  # <gh-username>/<repo>
-    issue_term: title # <url | pathname | title | ...>
+    repo: # <gh-username>/<repo>
+    issue_term: # <url | pathname | title | ...>
   giscus:
     repo: # <gh-username>/<repo>
     repo_id:
