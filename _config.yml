@@ -12,27 +12,27 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag 设置 › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 title: 尼爹再辞 # 主标题
 
-tagline: 一个以文本为中心的 Jekyll 主题 # 副标题
+tagline: 学习笔记记录 # 副标题
 
 description: >- # 用于 SEO 元数据和 Atom Feed
-  一个简约、响应式且功能丰富的 Jekyll 主题，适合技术写作。
+  用于记录自己折腾的事情。
 
 # 填写网站的协议和主机名。
 # 例如 'https://username.github.io'，注意不要以 '/' 结尾。
 url: "https://xianlilun.github.io"
 
 github:
-  username: github_username # 修改为你的 GitHub 用户名
+  username: xianlilun # 修改为你的 GitHub 用户名
 
 twitter:
   username: twitter_username # 修改为你的 Twitter 用户名
 
 social:
   name: 尼爹 # 更改为你的全名
-  email: example@domain.com # 修改为你的邮箱地址
+  email: shuicenwudi@gmail.com # 修改为你的邮箱地址
   links:
     - https://twitter.com/username # 修改为你的 Twitter 主页
-    - https://github.com/username # 修改为你的 GitHub 主页
+    - https://github.com/xianlilun # 修改为你的 GitHub 主页
 
 # 网站验证设置
 webmaster_verifications:
@@ -65,7 +65,7 @@ analytics:
 
 # 页面浏览量设置
 pageviews:
-  provider: # 目前仅支持 'goatcounter'
+  provider: goatcounter # 目前仅支持 'goatcounter'
 
 # 颜色方案偏好设置
 theme_mode: # [light | dark]
@@ -74,7 +74,7 @@ theme_mode: # [light | dark]
 cdn: "https://chirpy-img.netlify.app"
 
 # 侧边栏头像，支持本地或 CORS 资源
-avatar: "/commons/avatar.jpg"
+avatar: "/assets/尼爹.png"
 
 # 网站范围内的社交预览图像，用于 SEO `og:image` 元标签。
 social_preview_image: # 字符串，本地或 CORS 资源
