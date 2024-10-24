@@ -1,84 +1,67 @@
-<!-- markdownlint-disable-next-line -->
-<div align="center">
+# 弦理论博客
 
-  <!-- markdownlint-disable-next-line -->
-  # Chirpy Jekyll Theme
+欢迎来到我的博客！这是我使用 [Jekyll](https://jekyllrb.com/) 创建的个人博客，采用了 [Chirpy 主题](https://github.com/cotes2020/jekyll-theme-chirpy)。在这里，我将分享我的学习笔记、技术文章以及个人见解，涵盖电子软件、游戏、钓鱼等各种主题。
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+## 主题介绍
 
-  [![CI](https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github)][ci]&nbsp;
-  [![Codacy Badge](https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy)][codacy]&nbsp;
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod)][license]&nbsp;
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange)][gem]&nbsp;
-  [![Open in Dev Containers](https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers)][open-container]
+[Jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 是一个现代化、响应式的 Jekyll 主题，设计简洁，易于使用。它提供了丰富的功能，包括：
 
-  [**Live Demo** →][demo]
+- **支持 Markdown**：使用简单的 Markdown 语法书写文章，让内容更加专注。
+- **自定义配置**：用户可以通过配置文件轻松调整博客的外观和功能。
+- **多种布局**：提供多种页面布局选择，以适应不同类型的内容展示需求。
+- **评论系统**：集成了多种评论系统，方便与读者互动。
+- **社交媒体链接**：支持集成各大社交媒体平台，增加内容传播的可能性。
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+## 博客内容
 
-</div>
+在我的博客中，你会找到以下类型的内容：
 
-## Features
+- **技术文章**：分享我在软件开发、编程语言以及各种技术框架方面的学习与实践经验。
+- **游戏评测**：对我喜欢的游戏进行评测和心得分享，讨论游戏设计、机制以及个人感受。
+- **钓鱼心得**：记录我在钓鱼过程中的经验，包括钓具选择、钓鱼技巧以及一些有趣的故事。
+- **生活感悟**：分享我的生活经历、旅行见闻以及一些对生活的思考。
 
-- Dark Theme
-- Localized UI language
-- Pinned Posts on Home Page
-- Hierarchical Categories
-- Trending Tags
-- Table of Contents
-- Last Modified Date
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagrams & Flowcharts
-- Dark Mode Images
-- Embed Media
-- Comment Systems
-- Built-in Search
-- Atom Feeds
-- PWA
-- Web Analytics
-- SEO & Performance Optimization
+## 部署
 
-## Documentation
+该博客使用 GitHub Pages 部署，你可以通过以下链接访问我的博客：
 
-To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
+[https://xianlilun.github.io](https://xianlilun.github.io)
 
-## Contributing
+## 如何使用
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
-to learn, inspire, and create. Any contributions you make are greatly appreciated.
-For details, see the "[Contributing Guidelines][contribute-guide]".
+如果你希望使用这个主题搭建自己的博客，可以按照以下步骤操作：
 
-## Credits
+1. **Fork 本仓库**：在 GitHub 上点击 Fork 按钮，将此仓库复制到自己的账户中。
 
-### Contributors
+2. **克隆到本地**：使用 Git 将你的仓库克隆到本地。
+   ```bash
+   git clone https://github.com/你的用户名/你的仓库名称
+   ```
 
-Thanks to [all the contributors][contributors] involved in the development of the project!
+3. **安装依赖**：在项目根目录下，使用 Bundler 安装所需的 Gems。   
 
-[![all-contributors](https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16)][contributors]
-<sub> — Made with [contrib.rocks](https://contrib.rocks)</sub>
+   ```bash
+   bundle install
+   ```
 
-### Third-Party Assets
+4. **启动本地服务器**：运行以下命令启动 Jekyll 服务器，以便在本地查看效果。
 
-This project is built on the [Jekyll][jekyllrb] ecosystem and some [great libraries][lib], and is developed using [VS Code][vscode] as well as tools provided by [JetBrains][jetbrains] under a non-commercial open-source software license.
+   ```bash
+   bundle exec jekyll serve 
+   ```
 
-The avatar and favicon for the project's website are from [ClipartMAX][clipartmax].
 
-## License
 
-This project is published under [MIT License][license].
+## 贡献
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
-[jekyllrb]: https://jekyllrb.com/
-[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[vscode]: https://code.visualstudio.com/
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+欢迎任何建议和反馈！如果你想对这个项目做出贡献，请随时提 Issue 或 Pull Request。我会积极响应并进行改进。
+
+## 联系我
+
+如果你有任何问题或想法，可以通过以下方式联系我：
+
+- 微信：你的微信号
+- 微博：你的微博链接
+- 知乎：你的知乎链接
+
+感谢访问我的博客，希望你能找到有价值的内容！欢迎留下你的评论与建议，让我们一起交流与成长！
