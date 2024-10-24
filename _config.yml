@@ -71,7 +71,7 @@ pageviews:
 theme_mode: # [light | dark]
 
 # 媒体资源的 CDN 端点
-cdn: "https://cdn.jsdelivr.net/gh/xianlilun/xianlilun.github.io@main"  #https://chirpy-img.netlify.app
+cdn: #  "https://cdn.jsdelivr.net/gh/xianlilun/xianlilun.github.io@main"  #https://chirpy-img.netlify.app
 
 # 侧边栏头像，支持本地或 CORS 资源
 avatar: "assets/尼爹.jpg"
@@ -103,7 +103,7 @@ comments:
 # 自托管静态资源，选填
 assets:
   self_host:
-    enabled: true # 布尔值，空表示 false
+    enabled: # 布尔值，空表示 false
     env: # [development | production]
 
 pwa:
