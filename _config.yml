@@ -103,7 +103,7 @@ comments:
 # 自托管静态资源，选填
 assets:
   self_host:
-    enabled: # 布尔值，空表示 false
+    enabled: true # 布尔值，空表示 false
     env: # [development | production]
 
 pwa:
