@@ -49,7 +49,7 @@ webmaster_verifications:
 # 网站分析设置
 analytics:
   google:
-    id: # 填写你的 Google Analytics ID
+    id: G-TS1SF85DY9  # 填写你的 Google Analytics ID
   goatcounter:
     id: xianlilun  # 填写你的 GoatCounter ID
   umami:
