@@ -104,10 +104,7 @@ comments:
 assets:
   self_host:
     enabled: false # 布尔值，空表示 false
-    env: # [development | production]
-  cdn:
-    js: https://cdn.jsdelivr.net/gh/xianlilun/xianlilun.github.io@main/assets/lib
-
+    env: production # [development | production]
 
 pwa:
   enabled: true # PWA 特性（可安装）的选项
