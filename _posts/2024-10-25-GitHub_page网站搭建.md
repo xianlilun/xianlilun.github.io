@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "GitHub_page网站搭建"
 description: >-
   在用jekyll-theme-chirpy搭建网站的过程中，遇到的问题，简单记录下来。
