@@ -65,7 +65,7 @@ analytics:
 
 # 页面浏览量设置
 pageviews:
-  provider: goatcounter # 目前仅支持 'goatcounter'
+  provider: # 目前仅支持 'goatcounter'
 
 # 颜色方案偏好设置
 theme_mode: # [light | dark]
@@ -103,13 +103,13 @@ comments:
 # 自托管静态资源，选填
 assets:
   self_host:
-    enabled: true # 布尔值，空表示 false
+    enabled: false # 布尔值，空表示 false
     env: production # [development | production]
 
 pwa:
   enabled: true # PWA 特性（可安装）的选项
   cache:
-    enabled: true # PWA 离线缓存的选项
+    enabled: false # PWA 离线缓存的选项
     deny_paths:
       # - "/example"  # 匹配 `<SITE_URL>/example/*` 的 URLs 将不会被 PWA 缓存
 
