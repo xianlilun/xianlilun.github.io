@@ -48,6 +48,7 @@ webmaster_verifications:
 
 # 网站分析设置
 analytics:
+  enable: false
   google:
     id: G-TS1SF85DY9  # 填写你的 Google Analytics ID
   goatcounter:
