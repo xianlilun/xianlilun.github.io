@@ -99,6 +99,7 @@
   {% endif %}
 
   <!-- Web Analytics -->
+  <!--
   {% for analytics in site.analytics %}
     {% capture str %}{{ analytics }}{% endcapture %}
     {% assign type = str | split: '{' | first %}
@@ -106,4 +107,5 @@
       {% include analytics/{{ type }}.html %}
     {% endif %}
   {% endfor %}
+  -->
 {% endif %}
