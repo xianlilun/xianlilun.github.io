@@ -30,7 +30,6 @@ OUTPUT_PATH="./_posts/$FILENAME"
 # Markdown 内容
 cat <<EOL > "$OUTPUT_PATH"
 ---
-layout: post
 title: "$TITLE"
 description: >-
   $DESCRIPTION
