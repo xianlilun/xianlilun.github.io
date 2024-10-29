@@ -12,8 +12,9 @@ image:
 
 ## 前期准备
 1. **安装 ESPHome**：
-   - 在你的电脑上安装 ESPHome，可以通过命令行工具或在 Home Assistant 中使用。
-   - 使用以下命令安装 ESPHome：
+
+   - 在你的电脑上安装 ESPHome，可以通过命令行工具或在 Home Assistant 中使用，当然前提是你已经安装python，且会正确运用。
+   - 然后使用以下命令安装 ESPHome：
      ```bash
      pip install esphome
      ```
@@ -25,14 +26,16 @@ image:
 1. **创建配置文件**：
    - 在命令行中运行以下命令，创建新的配置文件（将 `<config_file>` 替换为你想要的文件名）：
      ```bash
-     esphome wizard <config_file>.yaml
+     esphome wizard <config_file>.yaml  #比如esp32-device.yaml
      ```
 
 2. **输入设备信息**：
-   - 选择使用的微控制器类型（输入 `esp32dev` 对于 ESP32 开发板）。
-   - 输入你的 Wi-Fi 网络名称（SSID）和密码。
-
+   
+   - 选择使用的微控制器类型（输入 `esp32dev` 对于 ESP32 开发板），可以看自己主板背面写的型号，比如esp32doit-devkit-v1 。
+   - 输入你的 Wi-Fi 网络名称（SSID）和密码，以便esp32能通过wifi连上家里的局域网。
+   
 3. **配置 API**：
+   
    - 在生成的 YAML 文件中，确保包含以下 API 配置：
      ```yaml
      api:
@@ -52,7 +55,7 @@ image:
 
 ## 集成到 Home Assistant
 1. **获取 ESP32 的 IP 地址**：
-   - 在你的路由器管理界面找到 ESP32 的 IP 地址。
+   - 在你的路由器管理界面找到 ESP32 的 IP 地址，上传固件成功，命令窗口会显示你连接的信息，包括ESP32的局域网IP。
 
 2. **在 Home Assistant 中添加 ESPHome 设备**：
    - 打开 Home Assistant 的界面。
